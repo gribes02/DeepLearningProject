@@ -107,9 +107,13 @@ class HyperParamTuner():
         self.loss_function = torch.nn.CrossEntropyLoss()
         self.param_grid = configs
 
-        self.inner_load_path = '/kaggle/working/best_inner_model.pt'
-        self.outer_load_path = '/kaggle/working/best_outer_model.pt'
-        self.log_file        = '/kaggle/working/log_file.txt'
+        # self.inner_load_path = '/kaggle/working/best_inner_model.pt'
+        # self.outer_load_path = '/kaggle/working/best_outer_model.pt'
+        # self.log_file        = '/kaggle/working/log_file.txt'
+
+        self.inner_load_path = 'best_inner_model.pt'
+        self.outer_load_path = 'best_outer_model.pt'
+        self.log_file        = 'log_file.txt'
 
         self.best_inner_config = None
         self.best_model        = None
@@ -124,7 +128,7 @@ class HyperParamTuner():
             transforms.ToTensor()
         ])
 
-        self.dataset = ImageFolder(root='/kaggle/input/malimg/data/malimg_paper_dataset_imgs', transform=transform)
+        self.dataset = ImageFolder(root='/data/malimg_paper_dataset_imgs', transform=transform)
         self.targets = self.dataset.targets
 
     def write_to_log(self, message):
