@@ -176,9 +176,9 @@ class HyperParamTuner():
         """Train model on training set and return accuracy and
            mae of best epoch"""
         train_loader = DataLoader(train_set, batch_size=self.batch_size, 
-                                shuffle=True, num_workers=2)
+                                shuffle=True, num_workers=1)
         test_loader = DataLoader(val_set, batch_size=self.batch_size, 
-                                shuffle=False, num_workers=2)
+                                shuffle=False, num_workers=1)
                     
         # Initialize optimizer
         optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.learning_rate)
