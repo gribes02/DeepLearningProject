@@ -128,7 +128,7 @@ class HyperParamTuner():
             transforms.ToTensor()
         ])
 
-        self.dataset = ImageFolder(root='/data/malimg_paper_dataset_imgs', transform=transform)
+        self.dataset = ImageFolder(root='data/malimg_paper_dataset_imgs', transform=transform)
         self.targets = self.dataset.targets
 
     def write_to_log(self, message):
